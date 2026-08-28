@@ -20,10 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* Scroll-reveal for sections */
+  /* Scroll-reveal for sections (progressive enhancement — see CSS:
+     sections are visible by default; JS arms the fade-in effect). */
   var reveals = document.querySelectorAll('.reveal');
 
   if ('IntersectionObserver' in window && reveals.length) {
+    reveals.forEach(function (el) { el.classList.add('js-ready'); });
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -34,8 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
     reveals.forEach(function (el) { observer.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
   /* Ensure hero video actually plays on mobile browsers that pause it */
