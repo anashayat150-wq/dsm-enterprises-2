@@ -94,12 +94,20 @@ p { line-height: 1.7; color: var(--ink-soft); margin: 0 0 14px; }
 
 .hero-video {
   width: 100%;
-  height: 100svh;
-  min-height: 420px;
-  max-height: 900px;
+  height: 62svh;
+  min-height: 300px;
+  max-height: 620px;
   background: var(--graphite);
   overflow: hidden;
   position: relative;
+}
+
+@media (max-width: 600px) {
+  .hero-video {
+    height: 46svh;
+    min-height: 240px;
+    max-height: 440px;
+  }
 }
 
 .hero-video__el {
