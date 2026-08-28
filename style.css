@@ -40,9 +40,9 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: var(--font-body);
-  color: var(--ink);
-  background: var(--paper);
+  font-family: system-ui, sans-serif;
+  color: #111111;
+  background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
 }
 
