@@ -40,9 +40,9 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
-  color: #111111;
-  background-color: #ffffff;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -240,12 +240,19 @@ p { line-height: 1.7; color: var(--ink-soft); margin: 0 0 14px; }
 /* REVEAL animation                                                       */
 /* ---------------------------------------------------------------------- */
 
+/* Sections are visible by default (no-JS safe). JS adds .js-ready first,
+   which arms the hidden state, then .is-visible reveals on scroll. This
+   way, if JavaScript fails to load for any reason, content still shows. */
 .reveal {
-  opacity: 0;
-  transform: translateY(22px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.reveal.is-visible {
+.reveal.js-ready {
+  opacity: 0;
+  transform: translateY(22px);
+}
+.reveal.js-ready.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -524,5 +531,4 @@ address {
 @media (max-width: 480px) {
   .section { padding: 60px 0; }
   .brandline { padding: 44px 20px 34px; }
-    }
-
+}
